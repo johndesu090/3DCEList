@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>3D元素周期表</title>
+		<title>3D Periodic Table</title>
 
 		<script>
 			function fangdajing() {
@@ -120,18 +120,18 @@
 		<script src="js/CSS3DRenderer.js"></script>
 
 		<div id="container"></div>
-		<div id="info">3D-元素周期表</div>
+		<div id="info">3D-Periodic Table of Elements</div>
 		<div id="menu">
-			<button id="table">表面</button>
-			<button id="sphere">球体</button>
-			<button id="helix">螺旋</button>
-			<button id="grid">网格</button>
+			<button id="table">Table</button>
+			<button id="sphere">Sphere</button>
+			<button id="helix">Spiral</button>
+			<button id="grid">Grid</button>
 		</div>
 
 		<script>
-			//这里是定义table元素放入展示的内容,在后面再对table进行解析
+			//Here is the content that defines the table element to be displayed, and the table will be parsed later
 			var table = [
-				"H", "飞翔的企鹅", "1.00794", 1, 1,
+				"H", "Hydrogen", "1.00794", 1, 1,
 				"He", "Helium", "4.002602", 18, 1,
 				"Li", "Lithium", "#6.941", 1, 2,
 				"Be", "Beryllium", "9.012182", 2, 2,
@@ -268,21 +268,21 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
-				//透视投影相机,PerspectiveCamera(fov, aspect, near, far) 
-				// - fov 可视角度 
-				// - aspect 为width/height,通常设置为canvas元素的高宽比。 
-				// - near近端距离 
-				// - far远端距离 
-				//只有离相机的距离大于near值，小于far值，且在相机的可视角度之内，才能被相机投影到。
+				//Perspective projection camera,PerspectiveCamera(fov, aspect, near, far) 
+				// - fov viewing angle
+				// - aspect is width/height, usually set to the aspect ratio of the canvas element.
+				// - near distance
+				// - far distance 
+				//Only the distance from the camera is greater than the near value, less than the far value, and within the camera's viewing angle, can it be projected by the camera.
 
 				camera.position.z = 3000;
-				//3000是camera的竖直高度,可以理解为值越大可见度越大
+				//3000 is the vertical height of the camera, which can be understood as the greater the value, the greater the visibility
 
 				scene = new THREE.Scene();
 
 
-				// table 表格
-				//这里是对table表格里的数据进行解析,然后分配到每个div中构成模块
+				// table
+				// Here is to parse the data in the table table, and then assign it to each div to form a module 
 				for (var i = 0; i < table.length; i += 5) {
 
 					var element = document.createElement('div');
@@ -322,7 +322,7 @@
 
 				}
 
-				// sphere 球
+				// sphere
 
 				var vector = new THREE.Vector3();
 
@@ -345,7 +345,7 @@
 
 				}
 
-				// helix 螺旋
+				// helix
 
 				var vector = new THREE.Vector3();
 
@@ -369,7 +369,7 @@
 
 				}
 
-				// grid 网格
+				// grid
 
 				for (var i = 0; i < objects.length; i++) {
 
@@ -393,36 +393,36 @@
 				//
 
 				controls = new THREE.TrackballControls(camera, renderer.domElement);
-				controls.rotateSpeed = 0.5; //旋转速度
-				controls.minDistance = 500; //最小距离
-				controls.maxDistance = 10000; //最大距离
+				controls.rotateSpeed = 0.5; //spinning speed
+				controls.minDistance = 500; //shortest distance
+				controls.maxDistance = 10000; //maximum distance
 				controls.addEventListener('change', render);
 
 				var button = document.getElementById('table');
 				button.addEventListener('click', function(event) {
 
-					transform(targets.table, 2000); //展示表格
+					transform(targets.table, 2000); //display table
 
 				}, false);
 
 				var button = document.getElementById('sphere');
 				button.addEventListener('click', function(event) {
 
-					transform(targets.sphere, 2000); //展示球
+					transform(targets.sphere, 2000); //display sphere
 
 				}, false);
 
 				var button = document.getElementById('helix');
 				button.addEventListener('click', function(event) {
 
-					transform(targets.helix, 2000); //展示螺旋
+					transform(targets.helix, 2000); //display spiral
 
 				}, false);
 
 				var button = document.getElementById('grid');
 				button.addEventListener('click', function(event) {
 
-					transform(targets.grid, 2000); //展示网格
+					transform(targets.grid, 2000); //display grid
 
 				}, false);
 
@@ -436,7 +436,7 @@
 
 
 			function transform(targets, duration) {
-				//targets对象,duration持续时间
+				//targets object, duration
 
 				TWEEN.removeAll();
 
